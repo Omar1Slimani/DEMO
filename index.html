@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Fashion Store</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('products')">الرئيسية</a></li>
+                <li><a href="#about-section" onclick="showSection('about')">من نحن</a></li>
+                <li><a href="#contact-section" onclick="showSection('contact')">اتصل بنا</a></li>
+            </ul>
+            <button class="cart-btn" onclick="openCart()">
+                🛒 السلة
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Products Section -->
+        <section id="products-section" class="page-section active">
+            <div class="category-buttons">
+                <button class="category-btn active" onclick="filterProducts('all')">جميع المنتجات</button>
+                <button class="category-btn" onclick="filterProducts('men')">رجال</button>
+                <button class="category-btn" onclick="filterProducts('women')">نساء</button>
+                <button class="category-btn" onclick="filterProducts('accessories')">إكسسوارات</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically generated here -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section" class="page-section">
+            <div class="about-content">
+                <h2>من نحن</h2>
+                <div class="about-text">
+                    <p>مرحباً بكم في متجر الأزياء، وجهتكم المثلى للأناقة والموضة العصرية. نحن متجر متخصص في تقديم أجود أنواع الملابس والإكسسوارات للرجال والنساء.</p>
+                    
+                    <p>تأسس متجرنا عام 2020 برؤية واضحة: جعل الأناقة والجودة في متناول الجميع. نحن نؤمن بأن الملابس ليست مجرد قطع قماش، بل تعبير عن الشخصية وأسلوب الحياة.</p>
+
+                    <p>فريقنا المتخصص يسعى دائماً لاختيار أفضل القطع من علامات تجارية مرموقة وتقديمها لكم بأسعار تنافسية وخدمة عملاء متميزة.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3 class="feature-title">جودة عالية</h3>
+                        <p class="feature-description">نختار منتجاتنا بعناية فائقة لضمان الجودة والمتانة والراحة في الاستخدام.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h3 class="feature-title">توصيل سريع</h3>
+                        <p class="feature-description">نوصل طلباتكم في أقل وقت ممكن إلى جميع أنحاء المغرب بأمان وسرعة.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💝</div>
+                        <h3 class="feature-title">خدمة متميزة</h3>
+                        <p class="feature-description">فريق خدمة العملاء متاح دائماً لمساعدتكم والإجابة على جميع استفساراتكم.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="page-section">
+            <div class="contact-content">
+                <h2>اتصل بنا</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 style="margin-bottom: 2rem; color: var(--primary-black);">معلومات التواصل</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h4>الهاتف</h4>
+                                <p>+212 123 456 789</p>
+                                <p>+212 987 654 321</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-details">
+                                <h4>البريد الإلكتروني</h4>
+                                <p>info@fashionstore.ma</p>
+                                <p>support@fashionstore.ma</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-details">
+                                <h4>العنوان</h4>
+                                <p>شارع الحسن الثاني، الدار البيضاء</p>
+                                <p>المغرب - 20000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 style="margin-bottom: 2rem; color: var(--primary-black);">أرسل لنا رسالة</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="contactName">الاسم الكامل:</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail">البريد الإلكتروني:</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPhone">رقم الهاتف:</label>
+                                <input type="tel" id="contactPhone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage">الرسالة:</label>
+                                <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-contact-btn">إرسال الرسالة</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-items">
+            <a href="#products-section" class="mobile-nav-item active" onclick="showSection('products')">
+                <span>🏠</span>
+                الرئيسية
+            </a>
+            <a href="#about-section" class="mobile-nav-item" onclick="showSection('about')">
+                <span>ℹ️</span>
+                من نحن
+            </a>
+            <a href="#contact-section" class="mobile-nav-item" onclick="showSection('contact')">
+                <span>📞</span>
+                اتصل بنا
+            </a>
+            <a href="#" class="mobile-nav-item" onclick="openCart()">
+                <span>🛒</span>
+                السلة
+                <span class="mobile-cart-count" id="mobileCartCount" style="display: none;">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <button class="close" onclick="closeCart()">&times;</button>
+            <h2>سلة التسوق</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                الإجمالي: <span id="totalPrice">0</span> درهم
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">المتابعة للدفع</button>
+            
+            <!-- Order Form -->
+            <div class="order-form" id="orderForm">
+                <h3>معلومات الطلب</h3>
+                <form id="customerForm">
+                    <div class="form-group">
+                        <label for="firstName">الاسم الأول:</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">اسم العائلة:</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">المدينة:</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">العنوان كاملاً:</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <button type="submit" class="submit-order-btn">
+                        <span id="submitText">تأكيد الطلب</span>
+                        <span id="loadingSpinner" class="loading" style="display: none;"></span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✅</div>
+                <h3>تم تأكيد طلبك بنجاح!</h3>
+                <p>شكراً لك، سنتواصل معك قريباً</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
